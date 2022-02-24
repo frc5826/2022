@@ -9,7 +9,9 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.JoystickDriveCommand;
+import frc.robot.commands.TrackBallCommand;
 import frc.robot.subsystems.DriveSubsystem;
 
 
@@ -43,11 +45,15 @@ public class RobotContainer
      */
     private void configureButtonBindings()
     {
+        JoystickButton trigger = new JoystickButton(Constants.joystick, 1);
+
+        trigger.whileHeld(new TrackBallCommand(getDriveSubsystem()));
+
         // Add button to command mappings here.
         // See https://docs.wpilib.org/en/stable/docs/software/commandbased/binding-commands-to-triggers.html
     }
 
-    public Subsystem getDriveSubsystem() {
+    public DriveSubsystem getDriveSubsystem() {
         return driveSubsystem;
     }
 

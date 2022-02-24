@@ -29,10 +29,10 @@ public class DriveSubsystem extends SubsystemBase {
     private SparkMaxPIDController rightSpark1_PID;
     private SparkMaxPIDController rightSpark2_PID;
 
-    private static final int leftID1 = 0;
-    private static final int leftID2 = 0;
-    private static final int rightID1 = 0;
-    private static final int rightID2 = 0;
+    private static final int leftID1 = 3;
+    private static final int leftID2 = 4;
+    private static final int rightID1 = 7;
+    private static final int rightID2 = 8;
 
     public DriveSubsystem() {
 
