@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.JoystickDriveCommand;
 import frc.robot.commands.TrackBallCommand;
 import frc.robot.subsystems.DriveSubsystem;
-
+import frc.robot.subsystems.LimelightSubsystem;
 
 
 /**
@@ -27,6 +27,8 @@ public class RobotContainer
     // The robot's subsystems and commands are defined here...
     private final DriveSubsystem driveSubsystem = new DriveSubsystem();
     private final JoystickDriveCommand joystickDrive = new JoystickDriveCommand(driveSubsystem);
+
+    private final LimelightSubsystem limelightSubsystem = new LimelightSubsystem();
     
     
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -47,7 +49,7 @@ public class RobotContainer
     {
         JoystickButton trigger = new JoystickButton(Constants.joystick, 1);
 
-        trigger.whileHeld(new TrackBallCommand(getDriveSubsystem()));
+        trigger.whileHeld(new TrackBallCommand(getDriveSubsystem(), getLimelightSubsystem()));
 
         // Add button to command mappings here.
         // See https://docs.wpilib.org/en/stable/docs/software/commandbased/binding-commands-to-triggers.html
@@ -60,4 +62,6 @@ public class RobotContainer
     public Command createJoystickCommand() {
         return joystickDrive;
     }
+
+    public LimelightSubsystem getLimelightSubsystem() {return limelightSubsystem;}
 }
